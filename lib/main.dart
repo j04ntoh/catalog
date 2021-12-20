@@ -19,8 +19,8 @@ class MyApp extends StatelessWidget {
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.landscapeRight,
       DeviceOrientation.landscapeLeft,
-      DeviceOrientation.portraitDown,
-      DeviceOrientation.portraitUp
+      // DeviceOrientation.portraitDown,
+      // DeviceOrientation.portraitUp
     ]);
 
     return MultiProvider(

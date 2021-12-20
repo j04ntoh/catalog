@@ -21,7 +21,7 @@ class Cart with ChangeNotifier {
   }
 
   void addItem(String itemId, String url, String title) {
-    debugPrint("itemId " + itemId + " "+title);
+    debugPrint("itemId " + itemId + " " + title);
     if (_items.containsKey(itemId)) {
       _items.update(
         itemId,
@@ -41,8 +41,10 @@ class Cart with ChangeNotifier {
         ),
       );
     }
+
     notifyListeners();
   }
+
   void removeSingleItem(String catId) {
     if (!_items.containsKey(catId)) {
       return;

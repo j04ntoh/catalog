@@ -2,7 +2,6 @@ import 'package:catalog/view_model/favourite.dart';
 import 'package:catalog/view_model/home.dart';
 import 'package:flutter/material.dart';
 
-
 class Landing extends StatefulWidget {
   const Landing({Key? key}) : super(key: key);
 
