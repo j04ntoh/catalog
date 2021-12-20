@@ -1,9 +1,10 @@
-
 import 'package:flutter/material.dart';
-// import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
+import 'package:flutter/services.dart';
 
-import 'package:catalog/view/landing.dart';
-import 'package:catalog/view/favourite.dart';
+import 'package:catalog/model/cart.dart';
+import 'package:catalog/view_model/landing.dart';
+import 'package:catalog/view_model/cat_profile.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,14 +16,20 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    // SystemChrome.setPreferredOrientations([
-      // DeviceOrientation.portraitDown,
-      // DeviceOrientation.portraitUp
-      // DeviceOrientation.landscapeRight,
-      // DeviceOrientation.landscapeLeft
-    // ]);
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.landscapeRight,
+      DeviceOrientation.landscapeLeft,
+      DeviceOrientation.portraitDown,
+      DeviceOrientation.portraitUp
+    ]);
 
-    return MaterialApp(
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (ctx) => Cart(),
+        )
+      ],
+      child: MaterialApp(
       title: 'Cat-a-log',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -30,8 +37,9 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/' : (context) => const Landing(),
-        'favourite/' : (context) => const Favourite(),
+        '/cat_profile' : (context) => const CatProfile(),
       },
+    ),
     );
   }
 }
